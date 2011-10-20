@@ -11,7 +11,7 @@ Preparation
 -----------
 
 - Install Green Shoes gem: `gem install green_shoes`    
-- Fork Hackety Hack Lesson Viewer repo: `git clone git://github.com/hacketyhack_lesson_viewer.git`
+- Fork Hackety Hack Lesson Viewer repo: `git clone git://github.com/ashbb/hacketyhack_lesson_viewer.git`
 
 Usage
 ------
