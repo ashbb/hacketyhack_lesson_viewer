@@ -1,5 +1,6 @@
 ﻿require 'green_shoes'
 require 'nkf'
+require_relative 'turtle'
 
 class IconButton < Shoes::Widget
   def initialize type, &blk
