@@ -8,6 +8,7 @@ class Turtle
   def self.draw start = false, &blk
     Shoes.app title: 'Turtle Graphics' do
       @start, @cmds = start, []
+      speed = start ? start : 1
       turtle = image './static/turtle.png', front: true
       turtle.rotate 360
       turtle.move 300-turtle.width/2, 250-turtle.height/2
@@ -15,7 +16,7 @@ class Turtle
       instance_eval &blk if blk
       button 'start' do
         n = @cmds.length
-	e = every do |i|
+      e = animate speed do |i|
           j = i - 1
           if @cmds[j][2]
             @turtle.send @cmds[j][0], *@cmds[j][1], &@cmds[j][2]
@@ -28,8 +29,8 @@ class Turtle
     end
   end
 
-  def self.start &blk
-    draw true, &blk
+  def self.start speed = 1, &blk
+    draw speed, &blk
   end
   
   def initialize turtle, app
@@ -38,6 +39,8 @@ class Turtle
     @stroke = @app.black
     @pendown = true
   end
+  
+  attr_reader :turtle
   
   def pencolor color
     @stroke = color
